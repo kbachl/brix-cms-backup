@@ -23,11 +23,7 @@ import org.modeshape.jcr.JcrConfiguration;
 import org.modeshape.jcr.JcrEngine;
 
 import javax.jcr.Repository;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * Created by IntelliJ IDEA. User: korbinianbachl Date: 16.03.11 Time: 14:56
@@ -36,7 +32,7 @@ public class JcrUtils {
 // -------------------------- STATIC METHODS --------------------------
 
     /**
-     * Create a {@link brix.workspace.WorkspaceManager} implementation. If <code>url</code> starts with
+     * Create a {@link org.brixcms.workspace.WorkspaceManager} implementation. If <code>url</code> starts with
      * <code>rmi://</code> an rmi based workspace manager will be created and returned. If <code>url</code> is left
      * blank, a local workspace manager will be created.
      *
@@ -89,9 +85,9 @@ public class JcrUtils {
             mkdirs(home);
 
             // create default config file if one is not present
-            File cfg = new File(home, "repository-ms.xml");
+            File cfg = new File(home, "repository.xml");
             if (!cfg.exists()) {
-                copyClassResourceToFile("/brix/demo/repository-ms.xml", cfg);
+                copyClassResourceToFile("/org/brixcms/demo/resources/repository.xml", cfg);
             }
 
 

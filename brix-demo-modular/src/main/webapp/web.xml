@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <display-name>org.brixcms-demo</display-name>
+    <!--+
+    | WICKET CONFIG
+    +-->
+    <filter>
+        <filter-name>wicket.brix-modular-demo</filter-name>
+        <filter-class>org.apache.wicket.protocol.http.WicketFilter
+        </filter-class>
+        <init-param>
+            <param-name>applicationClassName</param-name>
+            <param-value>org.brixcms.demo.web.WicketApplication</param-value>
+        </init-param>
+        <init-param>
+            <param-name>wicket.configuration</param-name>
+            <param-value>deployment</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>wicket.brix-modular-demo</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
+</web-app>

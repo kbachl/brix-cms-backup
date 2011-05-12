@@ -42,6 +42,7 @@
         <module>brix-jackrabbit</module>
         <module>brix-modeshape</module>
         <module>brix-jackrabbit-testdeps</module>
+        <module>brix-demo-modular</module>
     </modules>
 
     <properties>

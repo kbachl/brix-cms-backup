@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>brix</artifactId>
+        <groupId>org.brixcms</groupId>
+        <version>1.3.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.brixcms</groupId>
+    <artifactId>brix-demo-modular</artifactId>
+    <version>1.3.0-SNAPSHOT</version>
+
+    <packaging>war</packaging>
+
+    <name>Brix Modular Demo WebApp</name>
+    <description>
+        This demo is supposed to set the first step for modularity for Brix;
+        One day it should replace the brix-demo
+    </description>
+
+    <build>
+        <finalName>brix-demo-modular</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <configuration>
+                    <contextPath>/brix-demo-modular</contextPath>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.1.0</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <supportedProjectTypes>
+                        <supportedProjectType>war</supportedProjectType>
+                    </supportedProjectTypes>
+                    <instructions>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-plugin-snapshot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-plugin-menu</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-plugin-prototype</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-plugin-webdavurl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-workspace</artifactId>
+        </dependency>
+
+        <!--
+        |  JCR repo
+        -->
+
+        <dependency>
+            <groupId>org.brixcms</groupId>
+            <artifactId>brix-modeshape</artifactId>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.brixcms</groupId>-->
+        <!--<artifactId>brix-jackrabbit</artifactId>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-management</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--+
+        | LOGGING
+        +-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>
