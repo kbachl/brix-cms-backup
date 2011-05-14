@@ -19,11 +19,7 @@ import org.brixcms.jcr.api.JcrProperty;
 import org.brixcms.jcr.api.JcrSession;
 import org.brixcms.jcr.api.JcrValue;
 
-import javax.jcr.Binary;
-import javax.jcr.ItemVisitor;
-import javax.jcr.Node;
-import javax.jcr.Property;
-import javax.jcr.Value;
+import javax.jcr.*;
 import javax.jcr.nodetype.PropertyDefinition;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -184,7 +180,18 @@ class PropertyWrapper extends ItemWrapper implements JcrProperty {
     public JcrValue[] getValues() {
         return executeCallback(new Callback<JcrValue[]>() {
             public JcrValue[] execute() throws Exception {
-                return JcrValue.Wrapper.wrap(getDelegate().getValues(), getJcrSession());
+                /**
+                 * fix for only 1 property where many should be!
+                 */
+                try {
+                    return JcrValue.Wrapper.wrap(getDelegate().getValues(), getJcrSession());
+                } catch (Exception e) {
+                    if (e instanceof ValueFormatException) {
+                        return new JcrValue[]{JcrValue.Wrapper.wrap(getDelegate().getValue(), getJcrSession())};
+                    } else {
+                        throw e;
+                    }
+                }
             }
         });
     }
