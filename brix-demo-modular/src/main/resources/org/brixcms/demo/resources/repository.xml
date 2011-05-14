@@ -11,7 +11,7 @@
             <mode:options>
                 <mode:option jcr:name="anonymousUserRoles" mode:value="admin"/>
                 <mode:option jcr:name="useAnonymousAccessOnFailedLogin" mode:value="true"/>
-                <mode:option jcr:name="systemSourceName" mode:value="system@Brix"/>
+                <!--<mode:option jcr:name="systemSourceName" mode:value="system@Brix"/>-->
             </mode:options>
         </mode:repository>
     </mode:repositories>
@@ -19,7 +19,18 @@
     Define the sources for the content.  These sources are directly accessible using the ModeShape-specific
     Graph API.
     -->
-    <mode:sources jcr:primaryType="nt:unstructured">
+    <!--<mode:sources jcr:primaryType="nt:folder">-->
+        <!--<mode:source jcr:name="Brix"-->
+                     <!--mode:classname="org.modeshape.connector.infinispan.InfinispanSource"-->
+                     <!--mode:workspaceRootPath="/z-modeshape/jcr"-->
+                     <!--mode:updatesAllowed="false"-->
+                     <!--mode:extraPropertiesBehavior="store"-->
+                     <!--mode:retryLimit="3"-->
+                     <!-->-->
+            <!--<mode:predefinedWorkspaceNames>system</mode:predefinedWorkspaceNames>-->
+        <!--</mode:source>-->
+    <!--</mode:sources>-->
+    <mode:sources jcr:primaryType="nt:folder">
         <mode:source jcr:name="Brix"
                      mode:classname="org.modeshape.graph.connector.inmemory.InMemoryRepositorySource"
                      mode:retryLimit="3" mode:defaultWorkspaceName="default">
