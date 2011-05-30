@@ -180,18 +180,7 @@ class PropertyWrapper extends ItemWrapper implements JcrProperty {
     public JcrValue[] getValues() {
         return executeCallback(new Callback<JcrValue[]>() {
             public JcrValue[] execute() throws Exception {
-                /**
-                 * fix for only 1 property where many should be!
-                 */
-                try {
                     return JcrValue.Wrapper.wrap(getDelegate().getValues(), getJcrSession());
-                } catch (Exception e) {
-                    if (e instanceof ValueFormatException) {
-                        return new JcrValue[]{JcrValue.Wrapper.wrap(getDelegate().getValue(), getJcrSession())};
-                    } else {
-                        throw e;
-                    }
-                }
             }
         });
     }
