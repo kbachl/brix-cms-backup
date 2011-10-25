@@ -21,7 +21,6 @@ import org.apache.wicket.protocol.http.WebRequest;
 import org.apache.wicket.protocol.http.WebRequestCycle;
 import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.protocol.https.HttpsConfig;
-import org.apache.wicket.protocol.https.HttpsRequestCycleProcessor;
 import org.apache.wicket.request.IRequestCodingStrategy;
 import org.apache.wicket.request.RequestParameters;
 import org.apache.wicket.util.string.Strings;
@@ -31,6 +30,7 @@ import org.brixcms.config.BrixConfig;
 import org.brixcms.jcr.api.JcrSession;
 import org.brixcms.jcr.wrapper.BrixNode;
 import org.brixcms.plugin.site.SitePlugin;
+import org.brixcms.web.seam.https.SeamHttpsRequestCylceProcessor;
 import org.brixcms.workspace.Workspace;
 
 import javax.servlet.http.Cookie;
@@ -38,7 +38,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-public class BrixRequestCycleProcessor extends HttpsRequestCycleProcessor {
+public class BrixRequestCycleProcessor extends SeamHttpsRequestCylceProcessor {
 // ------------------------------ FIELDS ------------------------------
 
     public static final String WORKSPACE_PARAM = Brix.NS_PREFIX + "workspace";

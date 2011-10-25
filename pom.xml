@@ -10,7 +10,7 @@
 
     <groupId>org.brixcms</groupId>
     <artifactId>brix</artifactId>
-    <version>1.3.0-SNAPSHOT-01</version>
+    <version>1.3.0-kbachl-1</version>
 
     <packaging>pom</packaging>
 
@@ -46,7 +46,7 @@
     </modules>
 
     <properties>
-        <wicket.version>1.4.16</wicket.version>
+        <wicket.version>1.4.19</wicket.version>
         <jetty.version>6.1.11</jetty.version>
         <inmethod.grid.version>1.4.17</inmethod.grid.version>
         <htmllexer.version>2.0-SNAPSHOT</htmllexer.version>
@@ -62,62 +62,62 @@
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-wrapper</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-core</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-rmiserver</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-workspace</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-plugin-snapshot</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-plugin-prototype</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-plugin-menu</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-plugin-webdavurl</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-plugin-publish</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-jackrabbit</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-jackrabbit-testdeps</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
             <dependency>
                 <groupId>org.brixcms</groupId>
                 <artifactId>brix-modeshape</artifactId>
-                <version>1.3.0-SNAPSHOT-01</version>
+                <version>1.3.0-kbachl-1</version>
             </dependency>
 
 
@@ -185,6 +185,13 @@
                 <artifactId>wicket-spring</artifactId>
                 <version>${wicket.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.jboss.seam.wicket</groupId>
+                <artifactId>seam-wicket</artifactId>
+                <version>3.0.0.Final</version>
+            </dependency>
+
             <!--+
                    | LOGGING
                    +-->
@@ -405,6 +412,13 @@
             </plugin>
         </plugins>
     </build>
+
+     <repositories>
+        <repository>
+            <id>JBoss Public</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
     <scm>
         <connection>scm:git:git://github.com/brix-cms</connection>
