@@ -5,13 +5,13 @@
     <parent>
         <artifactId>brix</artifactId>
         <groupId>org.brixcms</groupId>
-        <version>1.3.0-kbachl-1</version>
+        <version>1.3.0-kbachl-2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.brixcms</groupId>
     <artifactId>brix-demo-modular</artifactId>
-    <version>1.3.0-kbachl-1</version>
+    <version>1.3.0-kbachl-2</version>
 
     <packaging>war</packaging>
 
